@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Admin | KBBGO Bandung Barat</title>
+
+<style>
+:root{
+    --primary:#0d9488;
+    --secondary:#14b8a6;
+    --dark:#1a1a2e;
+    --light:#f8f9fa;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI', Tahoma, sans-serif;
+    background:linear-gradient(135deg,#f0fdfa,#e6fffa);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* CARD LOGIN */
+.login-container{
+    background:#fff;
+    width:100%;
+    max-width:420px;
+    padding:40px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+/* LOGO */
+.logo{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo h1{
+    font-size:1.8rem;
+    font-weight:800;
+}
+
+.logo .kbbgo{color:#f59e0b}
+.logo .bandung{color:var(--primary)}
+
+.logo p{
+    color:#64748b;
+    font-size:.95rem;
+    margin-top:6px;
+}
+
+/* FORM */
+form{
+    margin-top:20px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    font-size:.9rem;
+    color:#334155;
+    margin-bottom:6px;
+}
+
+input{
+    width:100%;
+    padding:12px 14px;
+    border:1.5px solid #cbd5e1;
+    border-radius:10px;
+    font-size:.95rem;
+    outline:none;
+    transition:.3s;
+}
+
+input:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(13,148,136,.15);
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:13px;
+    background:var(--primary);
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    margin-top:10px;
+}
+
+button:hover{
+    background:var(--dark);
+    transform:translateY(-2px);
+}
+
+/* LINK */
+.back{
+    text-align:center;
+    margin-top:20px;
+}
+
+.back a{
+    text-decoration:none;
+    color:var(--primary);
+    font-size:.9rem;
+    font-weight:500;
+}
+
+.back a:hover{
+    text-decoration:underline;
+}
+
+/* ERROR */
+.error{
+    color:#dc2626;
+    font-size:.85rem;
+    margin-top:10px;
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="logo">
+        <h1><span class="kbbgo">KBBGO</span> <span class="bandung">Bandung Barat</span></h1>
+        <p>Login Admin Pengelola Data</p>
+    </div>
+
+    <form id="loginForm">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Masukkan username" required>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Masukkan password" required>
+        </div>
+
+        <button type="submit">Login</button>
+        <p class="error" id="errorMsg">Username atau password salah</p>
+    </form>
+
+    <div class="back">
+        <a href="zikri2.html">← Kembali ke Beranda</a>
+    </div>
+
+</div>
+
+<script>
+const form = document.getElementById("loginForm");
+const errorMsg = document.getElementById("errorMsg");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // LOGIN STATIS (UNTUK TUGAS)
+    if(user === "adminkelompok4" && pass === "kelompok4"){
+        localStorage.setItem("login","true");
+        window.location.href = "zikridua.html"; // halaman admin
+    }else{
+        errorMsg.style.display = "block";
+    }
+});
+</script>
+
+</body>
+</html>
